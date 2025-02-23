@@ -59,6 +59,18 @@ body {
   box-shadow: inset 0 8px rgba(0,0,0,0.3);
 }
 
+.letter {
+  /* display: none; */
+  z-index: -3;
+  /* background: #FAF9F6; */
+  background: white;
+  transition: 0.5s;
+}
+
+img {
+  width: 10px;
+}
+
 #click {
   display: none;
 }
@@ -78,5 +90,91 @@ body {
 .click::before {
   position: absolute;
   content: '';
-  
+  width: 25px;
+  height: 40px;
+  background: crimson;
+  left: 72px;
+}
+
+.tape {
+  position: absolute;
+  background: crimson;
+  width: 2.5em;
+  height: 3em;
+  left: 25px;
+  top: -65px;
+  border-radius: 1.5em 0 3em 1em/ 1.5em 0 3em 3.5em;
+  transform: rotate(60deg);
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.tape::before {
+  position: absolute;
+  content: '';
+  background: crimson;
+  width: 2.5em;
+  height: 3em;
+  left: 30px;
+  border-radius: 0 1.5em 1em 3em/0 1.5em 3.5em 3em;
+  top: -51px;
+  transform: rotate(-120deg)
+}
+
+.shadow {
+  position: absolute;
+  background: rgb(169, 16, 47);
+  width: 30px;
+  height: 30px;
+  top: -55px;
+  left: 59px;
+  border-radius: 50%;
+  border: none;
+  transform-origin: 100% 15%;
+  transition: 0.5s;
+}
+
+.shadow::before {
+  position: absolute;
+  content: '';
+  width: 25px;
+  height: 8px;
+  background: rgba(0,0,0,0.2);
+  left: -20px;
+  top: 0;
+  transform: rotate(30deg);
+  border-top-left-radius: 100%;
+  border-top-right-radius: 90%;
+}
+
+.shadow::after {
+  position: absolute;
+  content: '';
+  width: 25px;
+  height: 8px;
+  background: rgba(0,0,0,0.2);
+  left: 20px;
+  top: 0;
+  transform: rotate(-20deg);
+  border-top-left-radius: 100%;
+  border-top-right-radius: 90%;
+}
+
+#click:checked+.click{
+  transform: rotate(-110deg) scale(0.85);
+  /* visibility: hidden; */
+}
+#click:checked~.tape{
+  transform: rotate(-50deg) scale(0.85);
+  left: -80px;
+  top: -53px;
+}
+#click:checked~.shadow{
+  transform: rotate(-110deg) scale(0.85);
+  left: -110px;
+  top: -69px;
+}
+
+#click:checked~.letter {
+  display: block;
 }
