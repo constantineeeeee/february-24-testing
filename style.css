@@ -33,6 +33,7 @@ body {
 }
 
 .gift {
+  /* visibility: hidden; */
   position: absolute;
   width: 150px;
   height: 100px;
@@ -60,11 +61,28 @@ body {
 }
 
 .letter {
-  /* display: none; */
-  z-index: -3;
-  /* background: #FAF9F6; */
-  background: white;
+  position: absolute;
+  /* top: -150px; */
+  /* width: 300px;
+  height: 500px; */
+  width: 130px;
+  height: 100px;
+  background-color: white;
+  text-align: center;
   transition: 0.5s;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  padding: 20px 10px;
+  transition: 1s;
+  
+}
+
+.letter > .text {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: #444;
+  text-align: left;
+  font-size: 7px;
+  transition: 1s;
 }
 
 img {
@@ -175,6 +193,21 @@ img {
   top: -69px;
 }
 
-#click:checked~.letter {
-  display: block;
+.flap {
+  animation: moveUp 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(0%);
+    transform: scale(1);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: scale(2);
+    z-index: 1;
+  }
 }
